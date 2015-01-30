@@ -1,4 +1,7 @@
 <?php
+// Turn off all error reporting
+error_reporting(0);
+ini_set("display_errors", 0);
 
 $name = key($_GET);
 $name = str_replace (' ','+',$name);
@@ -29,7 +32,7 @@ function getNumberFromString($str){
 function getTimeFromFile(){
   $file = fopen("file.txt", "r") or die("Unable to open file!");
   $time_=fgets($file);
-  fclose($myfile);
+  fclose($file);
   return $time_;
 }
 
@@ -43,6 +46,7 @@ function saveTimeToFile($t){
 
 <html>
 <head>
+<title><? showAllTime();?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
 html, body {margin:50px;}
@@ -52,7 +56,7 @@ html, body {margin:50px;}
 
 <center>
   <h1><? showAllTime();?></h1>
-  <img class="img-rounded" src="<? echo $info->Poster;?> "/>
+  <img src="<?echo $info->Poster;?>">
   <h2><? echo $title;?></h2>
 </center>
 
