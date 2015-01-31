@@ -4,7 +4,7 @@ error_reporting(0);
 ini_set("display_errors", 0);
 
 $name = key($_GET);
-$name = str_replace (' ','+',$name);
+$name = str_replace ('_','+',$name);
 $request = "http://www.omdbapi.com/?t=".$name."&y=&plot=full&r=json";
 $json = file_get_contents($request);
 $info = json_decode($json);
